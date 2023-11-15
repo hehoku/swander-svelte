@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
 </script>
 
-<header class="bg-green-200 py-4">
+<header class="bg-green-200 py-4 w-full">
   <nav>
     <ul class="flex items-center justify-center flex-row gap-10">
       <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
