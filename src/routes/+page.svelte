@@ -40,13 +40,19 @@
       <p class="text-2xl font-bold self-end">
         —— {data.quote[0].author}
       </p>
-      <button class="bg-blue-500 px-4 py-2 text-white font-bold rounded-md" on:click={fetchQuote}>
+      <button
+        class="bg-blue-500 px-4 py-2 text-white font-bold rounded-md"
+        on:click={fetchQuote}
+      >
         Get New Quote
       </button>
     </div>
   {:else}
     <!-- 如果没有数据显示，可以在这里添加一个初始的加载按钮或提示 -->
-    <button class="bg-blue-500 px-4 py-2 text-white font-bold rounded-md" on:click={fetchQuote}>
+    <button
+      class="bg-blue-500 px-4 py-2 text-white font-bold rounded-md"
+      on:click={fetchQuote}
+    >
       Load Quote
     </button>
   {/if}

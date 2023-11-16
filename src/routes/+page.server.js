@@ -6,6 +6,7 @@ export async function load() {
     }
 
     const quote = await res.json();
+    console.log({ quote });
 
     return { quote };
   } catch (error) {
