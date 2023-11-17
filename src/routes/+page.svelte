@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   /**
    * @type {{ quote: { _id: string, content: string, author: string, tags: string[], authorSlug: string, length: number, dateAdded: string, dateModified: string }[] } | null}
    */
@@ -17,6 +19,7 @@
       if (res.ok) {
         const quoteData = await res.json();
         data = { quote: [quoteData] }; // 将获取的引用放入 data 对象中
+        console.log(data);
       } else {
         error = { message: "Failed to fetch quote" };
       }
@@ -24,6 +27,10 @@
       error = { message: e };
     }
   }
+
+  onMount(() => {
+    fetchQuote();
+  });
 </script>
 
 <svelte:head>
@@ -34,7 +41,7 @@
 <section>
   {#if error}
     <p>{error.message}</p>
-  {:else if data}
+  {:else if data?.quote}
     <div class="flex flex-col justify-center items-center gap-10">
       <p class="text-2xl font-bold">{data.quote[0].content}</p>
       <p class="text-2xl font-bold self-end">
